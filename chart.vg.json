@@ -1,0 +1,84 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data":{
+      "url": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/shark%20attacks.csv"},
+  "vconcat":[{
+  "hconcat":[{
+      "width": 500,
+      "height": 300,
+      "projection": {"type": "mercator"},
+      "layer": [
+          {
+              "data": {
+                  "url":"https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/low_res.geo%20(1).json",
+                  "format": {"type": "topojson", "feature": "low_res.geo"}
+                  },
+              "mark": {
+                  "type": "geoshape", "fill": "lightgray", "stroke": "white"}
+                  },
+          {
+            "title":"Shark Attacks Around The World",
+            "transform": [{"filter":{"param": "brush"}}],
+              "mark": {
+                  "type":"image", "height": 10, "width": 10},
+                  "encoding": {
+                      "tooltip":[{"field": "Date"}, {"field": "Type"}, {"field": "Country"}, {"field": "Area"}, {"field": "Location"}, {"field": "Activity"}, {"field": "Fatal (Y/N)"}, {"field": "Species "}],
+                      "url": {
+                          "condition": {
+                              "test": "datum['Fatal (Y/N)'] === 'Y'", 
+                              "value": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/Shark.png"},
+                          "value": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/Shark2.png"},
+                      "longitude":{"field":"Longitude", "type": "quantitative"},
+                      "latitude":{"field":"Latitude", "type": "quantitative"}                  
+                  }
+          }
+      ]
+    }
+    ,
+          {
+      "width": 100,
+      "height":30,
+      "transform": [{"filter":{"param": "brush"}}],
+      "encoding": {
+        "y":{"field":"Fatal (Y/N)", "type": "nominal", "title":null},
+        "x": {"aggregate": "count", "title":null, "axis":{"grid": false }},  
+        "color":{
+                "legend": null,
+                "field":"Fatal (Y/N)",
+                "type": "nominal",
+                "scale": {"range": ["steelblue", "#e35756"]}
+                      }
+      },
+      "view": {"stroke": "transparent"},
+      "layer":[{
+        "title":"Fatality",
+        "mark":{"type":"bar"}
+      },
+      {
+        "mark":{
+          "type": "text",
+          "align": "left",
+          "fontWeight":"bolder"
+        },
+        "encoding": {
+          "text": {"aggregate":"count"},
+          "color": {}
+          }
+      }]
+    }]
+  },       
+  {
+      "width": 635,
+      "height":50,
+      "params":[{
+        "name": "brush",
+        "select": {"type": "interval", "encodings": ["x"]}
+      }],
+      "mark":"line",
+      "encoding": {
+        "x":{"field":"Year", "type": "temporal", "timeUnit":"year", "title": "Year"},
+        "y": {"aggregate": "count", "title":"Number of shark attacks"}
+      }
+    }
+  ]
+}
