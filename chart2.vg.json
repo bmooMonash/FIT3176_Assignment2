@@ -1,0 +1,34 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data":{
+        "url": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/shark%20attacks.csv"},
+    "transform": [
+      {"aggregate":[{"op": "count", "field": "Activity","as": "thign"}], "groupby": ["Activity"]}
+      ,
+      {"window": [{"op":"row_number", "field": "thign", "as": "thign_rank"}], "sort": [{ "field": "thign", "order": "descending" }]},
+      {
+      "filter": "datum.thign_rank <= 10"
+    }
+    ],
+    "encoding": {
+        "y": {"field":"Activity", "sort": {"field": "thign", "order":"descending"}},
+        "x": {"field":"thign", "type": "quantitative", "title":"Number of attacks"},
+        "color":{"field":"Activity"}
+    },
+    "layer":[{
+      "mark":{"type": "bar", "size":10}},
+    {
+      "mark":{"type": "point", "size":200, "filled":true, "fillOpacity":1}},
+      {
+        "mark":{
+          "type": "text",
+          "align": "center",
+          "fontWeight":"bolder"
+        },
+        "encoding": {
+          "text": {"field":"thign_rank"},
+          "color": {}
+          }
+      }
+    ]
+  }
