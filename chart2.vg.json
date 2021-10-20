@@ -1,7 +1,9 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "background":"#00838fbb",
     "data":{
         "url": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/shark%20attacks.csv"},
+    "width": 500,
     "transform": [
       {"aggregate":[{"op": "count", "field": "Activity","as": "thign"}], "groupby": ["Activity"]}
       ,
@@ -11,9 +13,10 @@
     }
     ],
     "encoding": {
-        "y": {"field":"Activity", "sort": {"field": "thign", "order":"descending"}},
-        "x": {"field":"thign", "type": "quantitative", "title":"Number of attacks"},
-        "color":{"field":"Activity"}
+        "y": {"field":"Activity", "sort": {"field": "thign", "order":"descending"}, "axis":{"grid": false, "labelColor": "#eaeda8", "titleColor":"#eaeda8"}},
+        "x": {"field":"thign", "type": "quantitative", "title":"Number of attacks", "axis":{"grid": false, "labelColor": "#eaeda8", "titleColor":"#eaeda8"}},
+        "color":{"field":"Activity", 
+          "legend":{"labelColor":"#eaeda8", "titleColor":"#eaeda8"}}
     },
     "layer":[{
       "mark":{"type": "bar", "size":10}},
