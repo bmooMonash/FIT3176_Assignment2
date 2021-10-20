@@ -2,6 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "data":{
         "url": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/shark%20attacks.csv"},
+    "background": "#00828f",
     "width": 500,
     "height": 500,
     "transform": [
@@ -22,11 +23,13 @@
           "color":{
             "field": "Species", 
             "type": "nominal",
-            "scale": {"range": ["#142140", "#cd7f32","#6d2818", "#529978", "#1f55b5", "#425772", "#fda93a"]}}}},
+            "scale": {"range": ["#142140", "#cd7f32","#6d2818", "#529978", "#1f55b5", "#425772", "#fda93a"]},
+            "legend":{"labelColor":"#eaeda8", "labelFontWeight":"bold", "titleColor":"#eaeda8"}
+            }}},
          {"transform": [{"filter": {"field": "Species", "equal":"Other"}}],
         "mark":{"type": "image", "width": 600, "height":600, "filled":true, "fillOpacity":1},
       "encoding": {
-          "url":{"value": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/EmptyManBitten.png"},
+          "url":{"value": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/EmptyManBittenColoured.png"},
           "y": {"field":"Ypos","type":"quantitative", "axis":null, "scale":{"domain":[0, 7]}},
         "x": {"field":"Xpos", "type": "quantitative", "title":"Number of attacks", "axis":null, "scale":{"domain":[0, 10]}}}
         },
