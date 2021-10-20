@@ -93,7 +93,7 @@
                     "test": "datum['Fatal (Y/N)'] === 'Y'",
                     "value": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/Shark.png"
                   },
-                  "value": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/Shark5.png"
+                  "value": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/Shark8.png"
                 },
                 "longitude": {"field": "Longitude", "type": "quantitative"},
                 "latitude": {"field": "Latitude", "type": "quantitative"}
@@ -112,7 +112,7 @@
               "legend": null,
               "field": "Fatal (Y/N)",
               "type": "nominal",
-              "scale": {"range": ["#006f7a", "#e35756"]}
+              "scale": {"range": ["#73bbcc", "#e35756"]}
             }
           },
           "view": {"stroke": "transparent"},
