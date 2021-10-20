@@ -1,0 +1,81 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data":{
+        "url": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/shark%20attacks.csv"},
+  "background":"#00828f",
+    "hconcat":[
+            {
+        "transform": [
+          {"filter": {"field": "Fatal (Y/N)", "equal":"N"}},
+          {"aggregate": [{"op":"count", "field": "Country", "as": "Non Fatal"}], "groupby": ["Country"]},
+          {"window": [{"op":"row_number", "field": "", "as": "thign_rank"}]
+          },
+          {"filter": {"field": "Country", "oneOf": ["USA", "AUSTRALIA", "SOUTH AFRICA", "BAHAMAS", "NEW ZEALAND", "BRAZIL", "THAILAND", "MEXICO", "NEW CALEDONIA", "EGYPT"]}}
+         ],
+         
+        "width": 300,
+        "title": {
+    "text": "Non fatal ",
+    "color": "#eaeda8",
+    "fontSize": 16,
+    "anchor": "middle"
+  },
+        "mark":{"type":"bar"},
+        "encoding": {
+        "y":{"field":"Country", "axis":null},
+        "x":{"field":"Non Fatal", "type": "quantitative", "title": null, "sort":"descending", "axis":{"grid": false, "labelColor":"#eaeda8"}},
+        "color":{
+          "value": "#73bbcc"
+        },
+        "tooltip": [{"field": "Non Fatal"}]
+        }
+        
+    },
+    {
+      "transform": [
+          {"filter": {"field": "Fatal (Y/N)", "equal":"N"}},
+          {"aggregate": [{"op":"count", "field": "Country", "as": "thing"}], "groupby": ["Country"]},
+          {"window": [{"op":"row_number", "field": "", "as": "thign_rank"}]
+          },
+          {"filter": {"field": "Country", "oneOf": ["USA", "AUSTRALIA", "SOUTH AFRICA", "BAHAMAS", "NEW ZEALAND", "BRAZIL", "THAILAND", "MEXICO", "NEW CALEDONIA", "EGYPT"]}}
+         ],
+      "width": 20,
+      "view": {"stroke": null},
+      "mark":{
+        "type": "text",
+        "align":"center",
+        "fontWeight":"bold"
+      },
+      "encoding": {
+        "y":{"field": "Country", "axis":null},
+        "color": {"value":"#eaeda8"},
+        "text":{"field": "Country", "type": "nominal"}
+      }
+    },
+              {
+        "transform": [
+          {"filter": {"field": "Fatal (Y/N)", "equal":"Y"}},
+          {"aggregate": [{"op":"count", "field": "Country", "as": "Fatal"}], "groupby": ["Country"]},
+          {"window": [{"op":"row_number", "field": "", "as": "thign_rank"}]
+          },
+          {"filter": {"field": "Country", "oneOf": ["USA", "AUSTRALIA", "SOUTH AFRICA", "BAHAMAS", "NEW ZEALAND", "BRAZIL", "THAILAND", "MEXICO", "NEW CALEDONIA", "EGYPT"]}}
+         ],
+         
+        "width": 300,
+        "title": {
+    "text": "Fatal ",
+    "color": "#eaeda8",
+    "fontSize": 16,
+    "anchor": "middle"
+  },
+        "mark":{"type":"bar"},
+        "encoding": {
+        "y":{"field":"Country", "axis":null},
+        "x":{"field":"Fatal", "type": "quantitative", "title": null, "scale":{"domain":[0, 100]}, "axis":{"grid": false, "labelColor":"#eaeda8"}
+            },
+        "tooltip": [{"field": "Fatal"}],
+        "color":{"value":"#e35756"}
+        }
+    }
+    ]
+  }
