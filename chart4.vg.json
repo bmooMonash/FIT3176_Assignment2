@@ -2,6 +2,13 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "data":{
         "url": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/shark%20attacks.csv"},
+        
+  "title":{ 
+    "text": "Shark Species That Attack",
+  "color": "#eaeda8",
+  "fontSize": 32,
+  "anchor": "middle"
+  },
     "background": "#00828f",
     "width": 500,
     "height": 500,
@@ -24,7 +31,7 @@
             "field": "Species", 
             "type": "nominal",
             "scale": {"range": ["#142140", "#cd7f32","#6d2818", "#529978", "#1f55b5", "#425772", "#fda93a"]},
-            "legend":{"labelColor":"#eaeda8", "labelFontWeight":"bold", "titleColor":"#eaeda8"}
+            "legend":{"labelColor":"#eaeda8", "labelFontWeight":"bold", "titleColor":"#eaeda8", "labelFontSize":14, "titleFontSize":20}
             }}},
          {"transform": [{"filter": {"field": "Species", "equal":"Other"}}],
         "mark":{"type": "image", "width": 600, "height":600, "filled":true, "fillOpacity":1},
