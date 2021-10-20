@@ -1,6 +1,12 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "background":"#00838fbb",
+    "title":{
+      "text":"Activities Attacked",
+      "color": "#eaeda8",
+      "fontSize": 16,
+      "anchor": "middle"
+    },
     "data":{
         "url": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/shark%20attacks.csv"},
     "width": 500,
