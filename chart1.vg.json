@@ -10,7 +10,7 @@
           {"aggregate": [{"op":"count", "field": "Country", "as": "Non Fatal"}], "groupby": ["Country"]},
           {"window": [{"op":"row_number", "field": "", "as": "thign_rank"}]
           },
-          {"filter": {"field": "Country", "oneOf": ["USA", "AUSTRALIA", "SOUTH AFRICA", "BAHAMAS", "NEW ZEALAND", "BRAZIL", "REUNION", "MEXICO", "NEW CALEDONIA", "EGYPT"]}}
+          {"filter": {"field": "Country", "oneOf": ["USA", "AUSTRALIA", "SOUTH AFRICA", "BAHAMAS", "NEW ZEALAND", "BRAZIL", "THAILAND", "MEXICO", "NEW CALEDONIA", "EGYPT"]}}
          ],
          
         "width": 200,
@@ -29,7 +29,7 @@
           {"aggregate": [{"op":"count", "field": "Country", "as": "thing"}], "groupby": ["Country"]},
           {"window": [{"op":"row_number", "field": "", "as": "thign_rank"}]
           },
-          {"filter": {"field": "Country", "oneOf": ["USA", "AUSTRALIA", "SOUTH AFRICA", "BAHAMAS", "NEW ZEALAND", "BRAZIL", "REUNION", "MEXICO", "NEW CALEDONIA", "EGYPT"]}}
+          {"filter": {"field": "Country", "oneOf": ["USA", "AUSTRALIA", "SOUTH AFRICA", "BAHAMAS", "NEW ZEALAND", "BRAZIL", "THAILAND", "MEXICO", "NEW CALEDONIA", "EGYPT"]}}
          ],
       "width": 20,
       "view": {"stroke": null},
@@ -48,7 +48,7 @@
           {"aggregate": [{"op":"count", "field": "Country", "as": "Fatal"}], "groupby": ["Country"]},
           {"window": [{"op":"row_number", "field": "", "as": "thign_rank"}]
           },
-          {"filter": {"field": "Country", "oneOf": ["USA", "AUSTRALIA", "SOUTH AFRICA", "BAHAMAS", "NEW ZEALAND", "BRAZIL", "REUNION", "MEXICO", "NEW CALEDONIA", "EGYPT"]}}
+          {"filter": {"field": "Country", "oneOf": ["USA", "AUSTRALIA", "SOUTH AFRICA", "BAHAMAS", "NEW ZEALAND", "BRAZIL", "THAILAND", "MEXICO", "NEW CALEDONIA", "EGYPT"]}}
          ],
          
         "width": 200,
