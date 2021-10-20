@@ -1,32 +1,31 @@
-{
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "config": {"view": {"stroke": ""}},
-    "width": 500,
-    "height": 50,
-    "data": { "url": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/shark%20attacks.csv"},
-    "transform": [
-      {"filter":{"field":"Type", "oneOf":["Unprovoked", "Provoked"]}},
-      {"filter":{"field":"Sex", "oneOf":["F", "M"]}},
-      {"calculate": "{'F': 'Female', 'M': 'Male'}[datum.Sex]","as": "Gender"},
-      {"filter": {"field": "Country", "oneOf": ["USA", "AUSTRALIA", "SOUTH AFRICA", "BAHAMAS", "NEW ZEALAND"]}},
-      {"window": [{"op": "rank", "as": "rank"}], "groupby": ["Sex", "Type"]},
-      {"filter":{"field":"rank", "oneOf":[1, 50, 100, 150, 200, 250 ,300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800]}}
-    ],
-    "mark":{"type": "image", "baseline":"middle"},
-    "encoding": {
-      "url": {
-              "condition": [{
-              "test": "datum['Type'] == 'Unprovoked'&& datum['Gender'] == 'Male'" , 
-              "value": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/unprovoke_man.png"},
-              {"test": "datum['Type'] == 'Unprovoked'&& datum['Gender'] == 'Female'" , 
-              "value": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/unprovoke_woman.png"},
-              {"test": "datum['Type'] == 'Provoked'&& datum['Gender'] == 'Male'" , 
-                "value": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/provoke_man.png"}
-            ],
-              "value": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/provoke_woman.png"},
-      "x": {"field": "rank", "type": "ordinal", "axis": null},
-      "y": {"field": "Type", "type": "nominal", "axis": null, "sort":{"field":"rank"}},
-      "row": {"field": "Gender", "spacing": 0},
-      "color":{"field":"Type", "scale": {"range": ["#96ddc0", "#fd8a00"]}}
-      }
-  }
+"width": 1000,
+  "height": 150,
+  "data": { "url": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/shark%20attacks.csv"},
+  "transform": [
+    {"filter":{"field":"Type", "oneOf":["Unprovoked", "Provoked"]}},
+    {"filter":{"field":"Sex", "oneOf":["F", "M"]}},
+    {"calculate": "{'F': 'Female', 'M': 'Male'}[datum.Sex]","as": "Gender"},
+    {"filter": {"field": "Country", "oneOf": ["USA", "AUSTRALIA", "SOUTH AFRICA", "BAHAMAS", "NEW ZEALAND"]}},
+    {"window": [{"op": "rank", "as": "rank"}], "groupby": ["Sex", "Type"]},
+    {"filter":{"field":"rank", "oneOf":[1, 50, 100, 150, 200, 250 ,300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800]}}
+  ],
+  "mark":{"type": "image","height": 75, "baseline":"middle"},
+  "encoding": {
+    "url": {
+            "condition": [{
+            "test": "datum['Type'] == 'Unprovoked'&& datum['Gender'] == 'Male'" , 
+            "value": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/unprovoke_man.png"},
+            {"test": "datum['Type'] == 'Unprovoked'&& datum['Gender'] == 'Female'" , 
+            "value": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/unprovoke_woman.png"},
+            {"test": "datum['Type'] == 'Provoked'&& datum['Gender'] == 'Male'" , 
+              "value": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/provoke_man.png"}
+          ],
+            "value": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/provoke_woman.png"},
+    "x": {"field": "rank", "type": "ordinal", "axis": null},
+    "y": {"field": "Type", "type": "nominal", "axis": null, "sort":{"field":"rank"}},
+    "row": {"field": "Gender", "spacing": 0,  "header":{"titleColor":"#eaeda8", "labelColor":"#eaeda8", "labelFontSize":16, "labelFontWeight":"bold", "titleFontSize":16, "titleFontWeight":"bolder"}},
+    "color":{"field":"Type", "scale": {"range": ["#96ddc0", "#fd8a00"]},
+    "legend":{"titleColor":"#eaeda8", "labelColor": "#eaeda8"}
+    }
+    
+    }
