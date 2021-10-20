@@ -51,8 +51,8 @@
     {
       "hconcat": [
         {
-          "width": 1000,
-          "height": 500,
+          "width": 750,
+          "height": 400,
           "projection": {
             "type": "equalEarth",
             "center": {"expr": "country_selection[1]"}
