@@ -1,0 +1,62 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data":{
+        "url": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/shark%20attacks.csv"},
+    "width": 500,
+    "height": 500,
+    "transform": [
+      {"filter": {"field": "Species", "oneOf":["Great White Shark", "Tiger Shark", "Bull Shark", "Blacktip Shark", "Bronze whaler Shark","Hammerhead Shark", "Goblin Shark", "Other"]}},
+      {"aggregate":[{"op": "count", "field": "Species","as": "thign"}], "groupby": ["Species"]},
+      {"calculate": "{'Great White Shark': 1.8, 'Tiger Shark': 7.5, 'Bull Shark': 7.25, 'Blacktip Shark': 6.7, 'Bronze whaler Shark': 3, 'Hammerhead Shark': 7.3, 'Goblin Shark': 3.6, 'Other':5}[datum.Species]","as": "Xpos"},
+      {"calculate": "{'Great White Shark': 6.5, 'Tiger Shark': 7.3, 'Bull Shark':3.75, 'Blacktip Shark': 1.75, 'Bronze whaler Shark': 3.5, 'Hammerhead Shark': 5.1, 'Goblin Shark': 2.1, 'Other':5}[datum.Species]","as": "Ypos"},
+      {"calculate": "{'Great White Shark': 1, 'Tiger Shark': 7, 'Bull Shark':5, 'Blacktip Shark': 4, 'Bronze whaler Shark': 2, 'Hammerhead Shark': 6, 'Goblin Shark': 3, 'Other':8}[datum.Species]","as": "orderShark"}
+      
+    ],
+    "layer":[
+      
+        {"transform": [{"filter": {"field": "Species", "oneOf":["Great White Shark", "Tiger Shark", "Bull Shark", "Blacktip Shark", "Bronze whaler Shark","Hammerhead Shark", "Goblin Shark"]}}],
+          "mark":"arc",
+        "encoding": {
+          "theta": {"field": "thign", "type": "quantitative"},
+          "order":{"field":"orderShark", "type": "quantitative", "sort": "descending"},
+          "color":{
+            "field": "Species", 
+            "type": "nominal",
+            "scale": {"range": ["#142140", "#cd7f32","#6d2818", "#529978", "#1f55b5", "#425772", "#fda93a"]}}}},
+         {"transform": [{"filter": {"field": "Species", "equal":"Other"}}],
+        "mark":{"type": "image", "width": 600, "height":600, "filled":true, "fillOpacity":1},
+      "encoding": {
+          "url":{"value": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/EmptyManBitten.png"},
+          "y": {"field":"Ypos","type":"quantitative", "axis":null, "scale":{"domain":[0, 7]}},
+        "x": {"field":"Xpos", "type": "quantitative", "title":"Number of attacks", "axis":null, "scale":{"domain":[0, 10]}}}
+        },
+        {"transform": [{"filter": {"field": "Species", "oneOf":["Great White Shark", "Tiger Shark", "Bull Shark", "Blacktip Shark", "Bronze whaler Shark","Hammerhead Shark", "Goblin Shark"]}}],
+          "mark":{"type": "image", "width": 200, "height":200, "filled":true, "fillOpacity":1},
+        "encoding": {
+          "url":{"condition": [{
+              "test": "datum['Species'] == 'Great White Shark'" , 
+              "value": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/GreateWhiteShark.png"},
+              {
+              "test": "datum['Species'] == 'Tiger Shark'" , 
+              "value": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/TigerSharkLeft.png"},
+              {
+              "test": "datum['Species'] == 'Bull Shark'" , 
+              "value": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/BullSharkLeft.png"},
+              {
+              "test": "datum['Species'] == 'Blacktip Shark'" , 
+              "value": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/BlacktipSharkLeft.png"},
+              {
+              "test": "datum['Species'] == 'Bronze whaler Shark'" , 
+              "value": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/BronzeWhalerShark.png"},
+              {
+              "test": "datum['Species'] == 'Hammerhead Shark'" , 
+              "value": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/HammerheadSharkLeft.png"},
+              {
+              "test": "datum['Species'] == 'Goblin Shark'" , 
+              "value": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/GoblinShark.png"}
+            ]},
+          "y": {"field":"Ypos","type":"quantitative", "axis":null, "scale":{"domain":[0, 10]}},
+        "x": {"field":"Xpos", "type": "quantitative", "title":"Number of attacks", "axis":null, "scale":{"domain":[0, 10]}}}
+      }
+    ]
+  }
