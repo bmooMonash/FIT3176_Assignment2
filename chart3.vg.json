@@ -1,4 +1,14 @@
-"width": 1000,
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "config": {"view": {"stroke": ""}},
+  "title":{ 
+    "text": "Gender",
+  "color": "#eaeda8",
+  "fontSize": 20,
+  "anchor": "middle"
+  },
+  "background":"#00828f",
+  "width": 1000,
   "height": 150,
   "data": { "url": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/shark%20attacks.csv"},
   "transform": [
@@ -29,3 +39,4 @@
     }
     
     }
+}
