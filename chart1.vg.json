@@ -13,7 +13,7 @@
           {"filter": {"field": "Country", "oneOf": ["USA", "AUSTRALIA", "SOUTH AFRICA", "BAHAMAS", "NEW ZEALAND", "BRAZIL", "THAILAND", "MEXICO", "NEW CALEDONIA", "EGYPT"]}}
          ],
          
-        "width": 250,
+        "width": 300,
         "title": {
     "text": "Non fatal ",
     "color": "#eaeda8",
@@ -61,7 +61,7 @@
           {"filter": {"field": "Country", "oneOf": ["USA", "AUSTRALIA", "SOUTH AFRICA", "BAHAMAS", "NEW ZEALAND", "BRAZIL", "THAILAND", "MEXICO", "NEW CALEDONIA", "EGYPT"]}}
          ],
          
-        "width": 250,
+        "width": 300,
         "title": {
     "text": "Fatal ",
     "color": "#eaeda8",
