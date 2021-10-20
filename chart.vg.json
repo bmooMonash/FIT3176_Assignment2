@@ -49,17 +49,10 @@
       "url": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/shark%20attacks.csv"},
   "vconcat":[{
   "hconcat":[{
-      "width": 500,
+      "width": "container",
       "height": 300,
           "projection": {
-                "type": "equalEarth",
-                "center": {
-                    "expr": "country_selection[1]"
-                },
-                "scale": {
-                    "expr": "country_selection[2]"
-                }
-
+                "type": "equalEarth"
             },
       "layer": [
           {
@@ -96,7 +89,7 @@
       "transform": [{"filter":{"param": "brush"}}],
       "encoding": {
         "y":{"field":"Fatal (Y/N)", "type": "nominal", "title":null},
-        "x": {"aggregate": "count", "title":null, "axis":{"grid": false }},  
+        "x": {"aggregate": "count", "title":null, "axis":null},  
         "color":{
                 "legend": null,
                 "field":"Fatal (Y/N)",
