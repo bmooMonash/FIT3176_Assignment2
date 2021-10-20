@@ -9,7 +9,7 @@
     },
     "data":{
         "url": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/shark%20attacks.csv"},
-    "width": 500,
+    "width": 450,
     "transform": [
       {"aggregate":[{"op": "count", "field": "Activity","as": "thign"}], "groupby": ["Activity"]}
       ,
