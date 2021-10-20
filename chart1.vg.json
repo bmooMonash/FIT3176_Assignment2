@@ -2,7 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "data":{
         "url": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/shark%20attacks.csv"},
-  
+  "background":"#00828f",
     "hconcat":[
             {
         "transform": [
@@ -13,12 +13,20 @@
           {"filter": {"field": "Country", "oneOf": ["USA", "AUSTRALIA", "SOUTH AFRICA", "BAHAMAS", "NEW ZEALAND", "BRAZIL", "THAILAND", "MEXICO", "NEW CALEDONIA", "EGYPT"]}}
          ],
          
-        "width": 200,
-        "title":"Non Fatal",
+        "width": 250,
+        "title": {
+    "text": "Non fatal ",
+    "color": "#eaeda8",
+    "fontSize": 16,
+    "anchor": "middle"
+  },
         "mark":{"type":"bar"},
         "encoding": {
         "y":{"field":"Country", "axis":null},
-        "x":{"field":"Non Fatal", "type": "quantitative", "title": null, "sort":"descending"},
+        "x":{"field":"Non Fatal", "type": "quantitative", "title": null, "sort":"descending", "axis":{"grid": false, "labelColor":"#eaeda8"}},
+        "color":{
+          "value": "#73bbcc"
+        },
         "tooltip": [{"field": "Non Fatal"}]
         }
         
@@ -35,10 +43,12 @@
       "view": {"stroke": null},
       "mark":{
         "type": "text",
-        "align":"center"
+        "align":"center",
+        "fontWeight":"bold"
       },
       "encoding": {
         "y":{"field": "Country", "axis":null},
+        "color": {"value":"#eaeda8"},
         "text":{"field": "Country", "type": "nominal"}
       }
     },
@@ -51,12 +61,17 @@
           {"filter": {"field": "Country", "oneOf": ["USA", "AUSTRALIA", "SOUTH AFRICA", "BAHAMAS", "NEW ZEALAND", "BRAZIL", "THAILAND", "MEXICO", "NEW CALEDONIA", "EGYPT"]}}
          ],
          
-        "width": 200,
-        "title":"Non Fatal",
+        "width": 250,
+        "title": {
+    "text": "Fatal ",
+    "color": "#eaeda8",
+    "fontSize": 16,
+    "anchor": "middle"
+  },
         "mark":{"type":"bar"},
         "encoding": {
         "y":{"field":"Country", "axis":null},
-        "x":{"field":"Fatal", "type": "quantitative", "title": null, "scale":{"domain":[0, 100]}
+        "x":{"field":"Fatal", "type": "quantitative", "title": null, "scale":{"domain":[0, 100]}, "axis":{"grid": false, "labelColor":"#eaeda8"}
             },
         "tooltip": [{"field": "Fatal"}],
         "color":{"value":"#e35756"}
