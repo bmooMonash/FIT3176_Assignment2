@@ -8,7 +8,7 @@
   "anchor": "middle"
   },
   "background":"#00828f",
-  "width": "container",
+  "width": 1200,
   "height": 100,
   "data": { "url": "https://raw.githubusercontent.com/bmooMonash/FIT3176_Assignment2/main/shark%20attacks.csv"},
   "transform": [
