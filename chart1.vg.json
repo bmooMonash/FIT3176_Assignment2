@@ -143,31 +143,32 @@
       "width": 550,
   "transform": [
     {
-      "aggregate": [{"op": "count", "field": "Activity", "as": "thign"}],
+      "aggregate": [{"op": "count", "field": "Activity", "as": "Activity Attacked"}],
       "groupby": ["Activity"]
     },
     {
-      "window": [{"op": "row_number", "field": "thign", "as": "thign_rank"}],
-      "sort": [{"field": "thign", "order": "descending"}]
+      "window": [{"op": "row_number", "field": "Activity Attacked", "as": "thign_rank"}],
+      "sort": [{"field": "Activity Attacked", "order": "descending"}]
     },
     {"filter": "datum.thign_rank <= 10"}
   ],
   "encoding": {
     "y": {
       "field": "Activity",
-      "sort": {"field": "thign", "order": "descending"},
+      "sort": {"field": "Activity Attacked", "order": "descending"},
       "axis": {"grid": false, "labelColor": "#eaeda8", "titleColor": "#eaeda8", "title":null}
     },
     "x": {
-      "field": "thign",
+      "field": "Activity Attacked",
       "type": "quantitative",
       "title": "Number of attacks",
       "axis": {"grid": false, "labelColor": "#eaeda8", "titleColor": "#eaeda8"}
     },
     "color": {
-      "field": "Activity",
+      "field": "Activity Attacked",
       "legend": null
-    }
+    },
+    "tooltip": [{"field": "Activity Attacked"}]
   },
   "layer": [
     {"mark": {"type": "bar", "size": 10}},
