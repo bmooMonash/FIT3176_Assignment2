@@ -156,7 +156,7 @@
     "y": {
       "field": "Activity",
       "sort": {"field": "thign", "order": "descending"},
-      "axis": {"grid": false, "labelColor": "#eaeda8", "titleColor": "#eaeda8"}
+      "axis": {"grid": false, "labelColor": "#eaeda8", "titleColor": "#eaeda8", "title":null}
     },
     "x": {
       "field": "thign",
