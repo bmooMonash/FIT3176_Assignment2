@@ -106,7 +106,7 @@
           "height": 30,
           "transform": [{"filter": {"param": "brush"}}],
           "encoding": {
-            "y": {"field": "Fatal (Y/N)", "type": "nominal", "title": null},
+            "y": {"field": "Fatal (Y/N)", "type": "nominal", "title": null, "axis":{"labelColor":"#eaeda8"}},
             "x": {"aggregate": "count", "title": null, "axis": null},
             "color": {
               "legend": null,
@@ -117,12 +117,12 @@
           },
           "view": {"stroke": "transparent"},
           "layer": [
-            {"title": "Fatality", "mark": {"type": "bar"}},
+            {"title": {"text":"Fatality", "color":"#eaeda8"}, "mark": {"type": "bar"}},
             {
               "mark": {"type": "text", "align": "left", "fontWeight": "bolder"},
               "encoding": {
                 "text": {"aggregate": "count"},
-                "color": {"value": "black"}
+                "color": {"value": "#eaeda8"}
               }
             }
           ]
