@@ -1,12 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "config": {"view": {"stroke": ""}},
-  "title":{ 
-    "text": "Gender",
-  "color": "#eaeda8",
-  "fontSize": 20,
-  "anchor": "middle"
-  },
   "background":"#00828f",
   "width": 1200,
   "height": 100,
