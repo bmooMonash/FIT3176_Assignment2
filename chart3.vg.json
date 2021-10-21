@@ -3,9 +3,9 @@
   "config": {"view": {"stroke": ""}},
   "background":"#00828f",
   "title":{ 
-    "text": "Gender",
+    "text": "Gender Attacked",
   "color": "#eaeda8",
-  "fontSize": 18,
+  "fontSize": 20,
   "anchor": "middle"
   },
   "width": 1200,
