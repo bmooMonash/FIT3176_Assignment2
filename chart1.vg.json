@@ -140,7 +140,7 @@
     "fontSize": 16,
     "anchor": "middle"
   },
-      "width": 450,
+      "width": 500,
   "transform": [
     {
       "aggregate": [{"op": "count", "field": "Activity", "as": "thign"}],
@@ -166,7 +166,7 @@
     },
     "color": {
       "field": "Activity",
-      "legend": {"labelColor": "#eaeda8", "titleColor": "#eaeda8"}
+      "legend": null
     }
   },
   "layer": [
